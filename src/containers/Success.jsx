@@ -10,7 +10,7 @@ const Success = () => {
     state: { buyer },
   } = useContext(AppContext);
   // const location = useGoogleAddress(buyer[0].address);
-  const location = useGoogleAddress();
+  // const location = useGoogleAddress();
   return (
     <div className="Succes">
       <div className="Success-content">
