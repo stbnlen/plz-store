@@ -2,6 +2,8 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const Dotenv = require('dotenv-webpack');
+const { webpack } = require('webpack');
+require('dotenv').config();
 
 /** @type {import('webpack').Configuration} */
 module.exports = {
@@ -53,7 +55,12 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: 'assests/[name].css',
     }),
-    new Dotenv(),
+    new Dotenv({
+      path: './.env',
+      safe: true,
+      systemvars: true,
+      defaults: false,
+    }),
   ],
   devServer: {
     allowedHosts: path.join(__dirname, 'dist'),
